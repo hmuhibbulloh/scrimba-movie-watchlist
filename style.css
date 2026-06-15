@@ -6,9 +6,110 @@
 
 body {
   font-family: "Pliant", sans-serif;
+  color: #eee;
 }
 
 input,
 button {
   font-family: inherit;
+}
+
+.header {
+  min-height: 300px;
+  height: 40vh;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 50%),
+    url("./images/bg.jpg");
+  background-position: top;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header h1 {
+  /* flex: 1; */
+  font-size: 4rem;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+.header a {
+  color: #eee;
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.movie-search-form {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  /* background-color: red; */
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  z-index: 1;
+}
+
+input {
+  font-size: 1rem;
+  flex: 1;
+  background-color: #444;
+  padding: 0.7em;
+  color: #eee;
+  border: none;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+}
+
+button:hover,
+a:hover {
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.search-btn {
+  padding: 0 1.5em;
+  font-size: 1rem;
+  background-color: #777;
+  border: none;
+  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  color: #fff;
+}
+
+.main {
+  background-color: #161616;
+  height: 60vh;
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .header {
+    background-position: bottom;
+  }
+}
+
+.fa-film {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  font-size: 4rem;
+  transform: translate(-50%, 50%);
+  opacity: 0.15;
+}
+
+.fa-film::after {
+  content: "Start exploring";
+  width: max-content;
+  position: absolute;
+  font-size: 1rem;
+  bottom: -1.4rem;
+  left: -50%;
 }
