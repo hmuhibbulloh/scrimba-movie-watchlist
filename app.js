@@ -1,5 +1,5 @@
 const API_KEY = "a6b954e9";
-const URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
+const URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 
 const formEl = document.querySelector(".movie-search-form");
 const searchInputEl = document.querySelector(".search-input");
