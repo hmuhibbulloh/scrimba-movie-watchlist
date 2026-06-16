@@ -169,3 +169,24 @@ a:hover {
     object-position: top;
   }
 }
+
+.fa-plus {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 4px;
+  background-color: #444;
+  padding: 5px 10px;
+  border-radius: 0.3em;
+  margin-top: auto;
+  transition: 0.1s;
+}
+
+.fa-plus:hover {
+  cursor: pointer;
+  background-color: #555;
+}
+
+.add-to-watchlist {
+  font-size: 12px;
+}

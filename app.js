@@ -29,7 +29,9 @@ async function renderMovies(movies) {
             <span class="add-watchlist"></span>
           </div>
           <p class="movie-plot">${movieDetails.Plot}</p>
+          <i class="fa-solid fa-plus"><span class="add-to-watchlist">Add to watchlist</span></i>
         </div>
+        
       </div>
     `;
   }
