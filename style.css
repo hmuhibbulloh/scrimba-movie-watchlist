@@ -9,6 +9,10 @@ body {
   color: #eee;
 }
 
+img {
+  max-width: 100%;
+}
+
 input,
 button {
   font-family: inherit;
@@ -29,7 +33,6 @@ button {
 }
 
 .header h1 {
-  /* flex: 1; */
   font-size: clamp(3rem, 7vw, 6rem);
   text-align: center;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
@@ -86,8 +89,9 @@ a:hover {
 
 .main {
   background-color: #161616;
-  height: 60vh;
+  min-height: 60vh;
   position: relative;
+  padding: 2rem;
 }
 
 @media (min-width: 900px) {
@@ -112,4 +116,56 @@ a:hover {
   font-size: 1rem;
   bottom: -1.4rem;
   left: -50%;
+}
+
+.movie {
+  gap: 1rem;
+  display: flex;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 4px solid #444;
+  padding: 1rem;
+}
+
+.movie-poster {
+  flex-shrink: 0;
+  width: 150px;
+  height: 180px;
+}
+
+.movie-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rating {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+@media (max-width: 450px) {
+  .movie {
+    flex-direction: column;
+  }
+
+  .movie-poster {
+    align-self: center;
+    height: 400px;
+    width: 100%;
+  }
+  .movie-poster img {
+    object-fit: cover;
+    object-position: top;
+  }
 }
