@@ -11,11 +11,9 @@ async function getMovie(title) {
 }
 
 async function renderMovies(movies) {
-  console.log(movies);
   let moviesHtml = "";
   for (const movie of movies) {
     const movieDetails = await getMovieById(movie.imdbID);
-    console.log(movieDetails, movie.imdbID);
     moviesHtml += `
     <div class="movie">
         <div class="movie-poster">
@@ -29,7 +27,7 @@ async function renderMovies(movies) {
             <span class="add-watchlist"></span>
           </div>
           <p class="movie-plot">${movieDetails.Plot}</p>
-          <i class="fa-solid fa-plus"><span class="add-to-watchlist">Add to watchlist</span></i>
+          <i data-movie-id="${movieDetails.imdbID}" class="fa-solid fa-plus">Add to watchlist</i>
         </div>
         
       </div>
@@ -48,6 +46,22 @@ formEl.addEventListener("submit", async (e) => {
   e.preventDefault();
   const movies = await getMovie(searchInputEl.value);
   renderMovies(movies);
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.closest(".fa-plus")) {
+    if (localStorage.getItem("movieIds")) {
+      const movieIds = JSON.parse(localStorage.getItem("movies"));
+      movieIds.push(e.target.dataset.movieId);
+      localStorage.setItem("movies", JSON.stringify(movieIds));
+      console.log("AAA");
+    } else {
+      const movieIds = [];
+      movieIds.push(e.target.dataset.movieId);
+      localStorage.setItem("movies", JSON.stringify(movieIds));
+    }
+    console.log(JSON.parse(localStorage.getItem("movies")));
+  }
 });
 
 // {
