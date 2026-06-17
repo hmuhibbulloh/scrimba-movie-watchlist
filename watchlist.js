@@ -1,6 +1,10 @@
 import getMovieById from "./app.js";
 
 document.addEventListener("DOMContentLoaded", async (e) => {
+  renderMoviesFromLocalStorage();
+});
+
+async function renderMoviesFromLocalStorage() {
   const movieIdsLS = JSON.parse(localStorage.getItem("movies"));
   let moviesHtml = "";
   for (const movieId of movieIdsLS) {
@@ -25,4 +29,21 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     `;
   }
   document.querySelector(".watchlist-main").innerHTML = moviesHtml;
+}
+
+document.addEventListener("click", (e) => {
+  if (e.target.closest(".fa-remove")) {
+    if (localStorage.getItem("movies")) {
+      const movieIds = JSON.parse(localStorage.getItem("movies"));
+      const newMovieIds = movieIds.filter(
+        (id) => id != e.target.dataset.movieId,
+      );
+      localStorage.setItem("movies", JSON.stringify(newMovieIds));
+    } else {
+      const movieIds = [];
+      movieIds.push(e.target.dataset.movieId);
+      localStorage.setItem("movies", JSON.stringify(movieIds));
+    }
+    renderMoviesFromLocalStorage();
+  }
 });
