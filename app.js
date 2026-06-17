@@ -50,17 +50,15 @@ formEl.addEventListener("submit", async (e) => {
 
 document.addEventListener("click", (e) => {
   if (e.target.closest(".fa-plus")) {
-    if (localStorage.getItem("movieIds")) {
+    if (localStorage.getItem("movies")) {
       const movieIds = JSON.parse(localStorage.getItem("movies"));
       movieIds.push(e.target.dataset.movieId);
       localStorage.setItem("movies", JSON.stringify(movieIds));
-      console.log("AAA");
     } else {
       const movieIds = [];
       movieIds.push(e.target.dataset.movieId);
       localStorage.setItem("movies", JSON.stringify(movieIds));
     }
-    console.log(JSON.parse(localStorage.getItem("movies")));
   }
 });
 
