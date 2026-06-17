@@ -170,7 +170,8 @@ a:hover {
   }
 }
 
-.fa-plus {
+.fa-plus,
+.fa-remove {
   display: flex;
   width: max-content;
   align-items: center;
@@ -183,7 +184,13 @@ a:hover {
   font-size: 12px;
 }
 
-.fa-plus:hover {
+.fa-plus:hover,
+.fa-remove:hover {
   cursor: pointer;
   background-color: #555;
+}
+
+.watchlist-main {
+  min-height: 100vh;
+  background-color: #161616;
 }

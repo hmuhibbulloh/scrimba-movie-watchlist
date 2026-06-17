@@ -104,3 +104,4 @@ document.addEventListener("click", (e) => {
 //   "Website": "N/A",
 //   "Response": "True"
 // }
+export default getMovieById;
